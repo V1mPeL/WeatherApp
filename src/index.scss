@@ -1,0 +1,113 @@
+// Container & Breakpoints
+@use 'sass:math';
+$containerWidth: 1200;
+$containerPadding: 40;
+$containerSidePadding: 20;
+$breakpoint1450: 1449.98 + px;
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint480: 479.98 + px;
+
+// Burger Menu
+$burgerBreakpoint: $breakpoint992;
+$burgerColor: 'black';
+$burgerActiveColor: 'white';
+
+// Fonts
+$fontMain: sans-serif;
+$fontSecondary: '';
+
+.container {
+    max-width: ($containerWidth + $containerPadding) + px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 $containerSidePadding + px;
+
+    @media (max-width: 1450px) {
+        max-width: 1200px;
+    }
+
+    @media (max-width: 992px) {
+        max-width: 970px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 740px;
+    }
+
+    @media (max-width: 480px) {
+        max-width: none;
+    }
+}
+
+
+
+* {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+aside,
+nav,
+footer,
+header,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background: rgba(11, 27, 74, 1);
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
