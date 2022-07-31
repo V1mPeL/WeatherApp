@@ -24,6 +24,7 @@ export const Main = () => {
   const [dataFetched, setDataFetched] = useState(false)
   
   const [switchToggled, setSwitchToggled] = useState(false)
+  const [classToggled, setClassToggled] = useState(false)
   
 
   // Additional info
@@ -32,6 +33,9 @@ export const Main = () => {
   const [feels, setFeels] = useState("")
   const [winddeg, setWinddeg] = useState("")
   const [clouds, setClouds] = useState("")
+
+
+
 
 
 const fetchData = async (e) => {
@@ -95,15 +99,47 @@ const ToggleSwitch = ()=> {
   switchToggled ? setSwitchToggled(false) : setSwitchToggled(true);
 }
 
+const ToggleClass = ()=> {
+  classToggled ? setSwitchToggled(false) : setSwitchToggled(true);
+}
+
 function degToCompass(num) {
   var val = Math.floor((num / 22.5) + 0.5);
   var arr = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
   return arr[(val % 16)];
 }
 
+var dir = 
+{ 
+  N: "N", 
+  NNE: "NNE", 
+  NE: "NE", 
+  ENE: "ENE", 
+  E: "E", 
+  ESE: "ESE", 
+  SE: "SE", 
+  SSE: "SSE", 
+  S: "S", 
+  SSW: "SSW", 
+  SW: "SW", 
+  WSW: "WSW", 
+  W: "W", 
+  WNW: "WNW", 
+  NW: "NW", 
+  NNW: "NNW"
+};
+
+
+function arrowClass(el) {
+  if(degToCompass(winddeg) == el){
+    return "arrows active"
+  } else {
+    return "arrows"
+  }
+}
 
   return (
-
+    <>
     <div className='Main'>
       <div className="container">
         <div className="weather__wrapper">
@@ -133,16 +169,91 @@ function degToCompass(num) {
               </div>
           </div>  
             
-          <div className="hourly__weather">
+          <div className="additional__weather">
             <h4 className="additional__info">Air pressure: <span>{pressure} hPa</span></h4>
             <h4 className="additional__info">Ground pressure: <span>{pressuregr} hPa</span></h4>
             <h4 className="additional__info">Clouds: <span>{clouds}%</span></h4>
             <h4 className="additional__info">Feels like: <span>{Math.round(feels)}°{switchToggled ? 'F' : 'C'}</span></h4>
-            <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span></h4>
+            
           </div>
 
         </div>
       </div>
     </div>
+   
+      <div className="wind__compass">
+        <div className="container">
+          <div className="wind__compass-wrapper">
+          <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span></h4>
+            <div className='shell'>
+
+              <div className="arrow">
+                  <div className={arrowClass(dir.N)} id={dir.N}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.NNE)} id={dir.NNE}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.NE)}  id={dir.NE}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.ENE)}  id={dir.ENE}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.E)} id={dir.E}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.ESE)} id={dir.ESE}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.SE)} id={dir.SE}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.SSE)} id={dir.SSE}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.S)} id={dir.S}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.SSW)} id={dir.SSW}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.SW)} id={dir.SW}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.WSW)} id={dir.WSW}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.W)} id={dir.W}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.WNW)} id={dir.WNW}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.NW)} id={dir.NW}></div>
+              </div>
+
+              <div className="arrow">
+                <div className={arrowClass(dir.NNW)} id={dir.NNW}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }

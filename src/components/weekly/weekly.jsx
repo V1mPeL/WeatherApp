@@ -3,6 +3,6 @@ import './weekly.scss'
 
 export const Weekly = () => {
   return (
-    <div className='Weekly'>Weekly</div>
+    <div className='Weekly'>Daily weather currently in process...</div>
   )
 }

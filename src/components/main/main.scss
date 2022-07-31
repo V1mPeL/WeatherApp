@@ -8,14 +8,13 @@
     }
 }
 
-
 .search {
     width: 100%;
     position: relative;
     display: flex;
   }
   
-  .searchTerm {
+.searchTerm {
     width: 100%;
     border: 3px solid #00B4CC;
     border-right: none;
@@ -24,13 +23,13 @@
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
-  }
+}
   
-  .searchTerm:focus{
+.searchTerm:focus{
     color: #00B4CC;
-  }
+}
   
-  .searchButton {
+.searchButton {
     width: 40px;
     height: 40px;
     border: 1px solid #00B4CC;
@@ -40,7 +39,7 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
-  }
+}
   
 
 .weather__wrapper {
@@ -50,6 +49,7 @@
     gap: 100px;
     @media (max-width: 992px) {
       flex-direction: column;
+      gap: 10px;
     }
 }
 
@@ -141,7 +141,7 @@
     }
 }
 
-.hourly__weather {
+.additional__weather {
     flex: 0 1 40%;
     height: 400px;
     border-radius: 10px;
@@ -167,5 +167,218 @@
         font-size: 15px;
       }
     }
+  }
+}
+
+
+.wind__compass {
+  padding: 30px 0;
+  background: #0b1b4a;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-wrapper {
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+    background: rgba(10, 70, 250, 0.45);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+.shell {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+
+  .arrows {
+      width: 190px;
+      height: 190px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      border-radius: 50%;
+      
+
+      &:before {
+          content: '';
+          position: absolute;
+          width: 4px;
+          height: 90px;
+          background: white;
+          z-index: 11;
+          border-radius: 6px 6px 0 0;  
+      }
+
+      &.active {
+          color: red;
+          &:before {
+              background: red;
+          }
+      }
+
+
+      &#N {
+          transform: rotateZ(0deg);
+          &:after {
+              content: "N";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#NNE {
+          transform: rotateZ(20deg);
+          &:after {
+              content: "NNE";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+      
+      &#NE {
+          transform: rotateZ(45deg);
+          &:after {
+              content: "NE";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#ENE {
+          transform: rotateZ(70deg);
+          &:after {
+              content: "ENE";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#E {
+          transform: rotateZ(90deg);
+          &:after {
+              content: "E";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#ESE {
+          transform: rotateZ(110deg);
+          &:after {
+              content: "ESE";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#SE {
+          transform: rotateZ(135deg);
+          &:after {
+              content: "SE";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#SSE {
+          transform: rotateZ(160deg);
+          &:after {
+              content: "SSE";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#S {
+          transform: rotateZ(180deg);
+          &:after {
+              content: "S";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#SSW {
+          transform: rotateZ(200deg);
+          &:after {
+              content: "SSW";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#SW {
+          transform: rotateZ(225deg);
+          &:after {
+              content: "SW";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#WSW {
+          transform: rotateZ(250deg);
+          &:after {
+              content: "WSW";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#W {
+          transform: rotateZ(270deg);
+          &:after {
+              content: "W";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#WNW {
+          transform: rotateZ(290deg);
+          &:after {
+              content: "WNW";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#NW {
+          transform: rotateZ(315deg);
+          &:after {
+              content: "NW";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
+
+      &#NNW {
+          transform: rotateZ(340deg);
+          &:after {
+              content: "NNW";
+              font-size: 10px;
+              margin-top: -15px;
+          }
+      }
   }
 }
