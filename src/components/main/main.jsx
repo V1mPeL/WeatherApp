@@ -280,7 +280,7 @@ function arrowClass(el) {
             
 
             <div className="additional__content__block">
-              {/* <h4 className="additional__info">Latitude: <span>{latitude} </span>Longitute: <span>{longitude}</span></h4> */}
+              <h4 className="additional__info">Latitude: <span>{latitude} </span>Longitute: <span>{longitude}</span></h4>
               <LoadScript
                 googleMapsApiKey={process.env.GOOGLE_MAP_API_KEY}
               >
