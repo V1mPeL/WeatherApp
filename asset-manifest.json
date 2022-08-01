@@ -1,20 +1,15 @@
 {
   "files": {
-    "main.css": "/current/static/css/main.65fea045.css",
-    "main.js": "/current/static/js/main.898869d0.js",
-    "static/js/787.b30f2593.chunk.js": "/current/static/js/787.b30f2593.chunk.js",
-    "index.html": "/current/index.html",
-    "static/media/map.vue": "/current/static/media/map.9f38c5bcef9d15fcbd30.vue",
-    "static/media/streetViewPanorama.vue": "/current/static/media/streetViewPanorama.e20d8087be91d5826be2.vue",
-    "static/media/infoWindow.vue": "/current/static/media/infoWindow.fc21b9918f8e10f6b41f.vue",
-    "static/media/placeInput.vue": "/current/static/media/placeInput.e4d762cbd11e4efe5cda.vue",
-    "static/media/autocomplete.vue": "/current/static/media/autocomplete.a82b90517d9c505d9ad3.vue",
-    "main.65fea045.css.map": "/current/static/css/main.65fea045.css.map",
-    "main.898869d0.js.map": "/current/static/js/main.898869d0.js.map",
-    "787.b30f2593.chunk.js.map": "/current/static/js/787.b30f2593.chunk.js.map"
+    "main.css": "/WeahterApp/static/css/main.65fea045.css",
+    "main.js": "/WeahterApp/static/js/main.99de398c.js",
+    "static/js/787.b30f2593.chunk.js": "/WeahterApp/static/js/787.b30f2593.chunk.js",
+    "index.html": "/WeahterApp/index.html",
+    "main.65fea045.css.map": "/WeahterApp/static/css/main.65fea045.css.map",
+    "main.99de398c.js.map": "/WeahterApp/static/js/main.99de398c.js.map",
+    "787.b30f2593.chunk.js.map": "/WeahterApp/static/js/787.b30f2593.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.65fea045.css",
-    "static/js/main.898869d0.js"
+    "static/js/main.99de398c.js"
   ]
 }
