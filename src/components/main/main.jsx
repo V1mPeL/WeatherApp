@@ -2,7 +2,6 @@ import React from 'react'
 import './main.scss'
 import Input from '../input/input';
 import axios from 'axios';
-import { GmapMap } from 'vue2-google-maps'
 import { useEffect, useState } from 'react';
 
 export const Main = () => {
