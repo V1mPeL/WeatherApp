@@ -2,10 +2,14 @@ import React from 'react'
 import './main.scss'
 import Input from '../input/input';
 import axios from 'axios';
+import { WiHumidity } from 'react-icons/wi'
+import { BsWind } from 'react-icons/bs'
 import { useEffect, useState } from 'react';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
+
 
 export const Main = () => {
-  
+
   const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const day = new Date()
@@ -28,6 +32,15 @@ export const Main = () => {
   const [switchToggled, setSwitchToggled] = useState(false)
   const [classToggled, setClassToggled] = useState(false)
   
+  const containerStyle = {
+    width: '300px',
+    height: '300px'
+  };
+
+  const center = {
+    lat: {latitude},
+    lng: {longitude}
+  };
 
   // Additional info
   const [pressure, setPressure] = useState("")
@@ -131,7 +144,6 @@ var dir =
   NNW: "NNW"
 };
 
-
 function arrowClass(el) {
   if(degToCompass(winddeg) == el){
     return "arrows active"
@@ -139,6 +151,10 @@ function arrowClass(el) {
     return "arrows"
   }
 }
+
+
+
+
 
   return (
     <>
@@ -159,8 +175,8 @@ function arrowClass(el) {
                 <img src={`http://openweathermap.org/img/w/${icon}.png`} alt="weather icon"  className='WeahterIcon'/>
                 <h4 className="main__weather-type">{description}</h4>
               </div>
-              <h3 className='main__weather-additional'>Humidity: {humidity}%</h3>
-              <h3 className='main__weather-additional'>Wind speed: {wind} m/s</h3>
+              <h3 className='main__weather-additional'><WiHumidity />Humidity: {humidity}%</h3>
+              <h3 className='main__weather-additional'><BsWind />Wind speed: {wind} m/s</h3>
 
               <span className="main__weather-date">{date}</span>
               <div className="Changer">
@@ -261,11 +277,22 @@ function arrowClass(el) {
                 <div className="bar__colored" style={{"width" : `${clouds}%`}}></div>
               </div>
             </div>
+            
 
             <div className="additional__content__block">
-              <h4 className="additional__info">Latitude: <span>{latitude}</span></h4>
-              <h4 className="additional__info">Longitute: <span>{longitude}</span></h4>
-              
+              {/* <h4 className="additional__info">Latitude: <span>{latitude} </span>Longitute: <span>{longitude}</span></h4> */}
+              <LoadScript
+                googleMapsApiKey={process.env.GOOGLE_MAP_API_KEY}
+              >
+                <GoogleMap
+                  mapContainerStyle={containerStyle}
+                  center={center}
+                  zoom={10}
+                >
+                  { /* Child components, such as markers, info windows, etc. */ }
+                  <></>
+                </GoogleMap>
+              </LoadScript>
             </div>
           </div>
         </div>
