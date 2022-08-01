@@ -2,6 +2,7 @@ import React from 'react'
 import './main.scss'
 import Input from '../input/input';
 import axios from 'axios';
+import { GmapMap } from 'vue2-google-maps'
 import { useEffect, useState } from 'react';
 
 export const Main = () => {
@@ -21,6 +22,8 @@ export const Main = () => {
   const [humidity, setHumidity] = useState(null)
   const [wind, setWind] = useState(null)
   const [country, setCountry] = useState("")
+  const [longitude, setLongitude] = useState("")
+  const [latitude, setLatitude] = useState("")
   const [dataFetched, setDataFetched] = useState(false)
   
   const [switchToggled, setSwitchToggled] = useState(false)
@@ -33,10 +36,6 @@ export const Main = () => {
   const [feels, setFeels] = useState("")
   const [winddeg, setWinddeg] = useState("")
   const [clouds, setClouds] = useState("")
-
-
-
-
 
 const fetchData = async (e) => {
   e.preventDefault()
@@ -57,6 +56,8 @@ const fetchData = async (e) => {
     setFeels(data.main.feels_like)
     setWinddeg(data.wind.deg)
     setClouds(data.clouds.all)
+    setLongitude(data.coord.lon)
+    setLatitude(data.coord.lat)
     
   
     setDataFetched(true)
@@ -84,6 +85,8 @@ const defaultDataFetched = async () =>{
     setFeels(data.main.feels_like)
     setWinddeg(data.wind.deg)
     setClouds(data.clouds.all)
+    setLongitude(data.coord.lon)
+    setLatitude(data.coord.lat)
 
 
     console.log(data)
@@ -172,7 +175,6 @@ function arrowClass(el) {
           <div className="additional__weather">
             <h4 className="additional__info">Air pressure: <span>{pressure} hPa</span></h4>
             <h4 className="additional__info">Ground pressure: <span>{pressuregr} hPa</span></h4>
-            <h4 className="additional__info">Clouds: <span>{clouds}%</span></h4>
             <h4 className="additional__info">Feels like: <span>{Math.round(feels)}°{switchToggled ? 'F' : 'C'}</span></h4>
             
           </div>
@@ -181,79 +183,95 @@ function arrowClass(el) {
       </div>
     </div>
    
-      <div className="wind__compass">
+      <div className="additional__bars-wrapper">
         <div className="container">
-          <div className="wind__compass-wrapper">
-          <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span></h4>
-            <div className='shell'>
+          <div className="additional__bars">
+            <div className="additional__content__block">
+            <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span></h4>
+              <div className='shell'>
 
-              <div className="arrow">
-                  <div className={arrowClass(dir.N)} id={dir.N}></div>
-              </div>
+                <div className="arrow">
+                    <div className={arrowClass(dir.N)} id={dir.N}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.NNE)} id={dir.NNE}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.NNE)} id={dir.NNE}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.NE)}  id={dir.NE}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.NE)}  id={dir.NE}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.ENE)}  id={dir.ENE}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.ENE)}  id={dir.ENE}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.E)} id={dir.E}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.E)} id={dir.E}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.ESE)} id={dir.ESE}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.ESE)} id={dir.ESE}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.SE)} id={dir.SE}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.SE)} id={dir.SE}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.SSE)} id={dir.SSE}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.SSE)} id={dir.SSE}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.S)} id={dir.S}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.S)} id={dir.S}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.SSW)} id={dir.SSW}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.SSW)} id={dir.SSW}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.SW)} id={dir.SW}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.SW)} id={dir.SW}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.WSW)} id={dir.WSW}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.WSW)} id={dir.WSW}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.W)} id={dir.W}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.W)} id={dir.W}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.WNW)} id={dir.WNW}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.WNW)} id={dir.WNW}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.NW)} id={dir.NW}></div>
-              </div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.NW)} id={dir.NW}></div>
+                </div>
 
-              <div className="arrow">
-                <div className={arrowClass(dir.NNW)} id={dir.NNW}></div>
+                <div className="arrow">
+                  <div className={arrowClass(dir.NNW)} id={dir.NNW}></div>
+                </div>
               </div>
+            </div>
+
+            <div className="additional__content__block">
+            <h4 className="additional__info">Clouds: <span>{clouds}%</span></h4>
+              <div className="bar">
+                <div className="bar__colored" style={{"width" : `${clouds}%`}}></div>
+              </div>
+            </div>
+
+            <div className="additional__content__block">
+              <h4 className="additional__info">Latitude: <span>{latitude}</span></h4>
+              <h4 className="additional__info">Longitute: <span>{longitude}</span></h4>
+              
             </div>
           </div>
         </div>
       </div>
+
     </>
   )
 }

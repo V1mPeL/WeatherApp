@@ -1,5 +1,5 @@
 {
-  "homepage": "http://weahterApp.github.io/WeatherApp",
+  "homepage": "http://weahterApp.github.io/current",
   "name": "react-weather-app",
   "version": "0.1.0",
   "private": true,
@@ -14,11 +14,12 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "vue2-google-maps": "^0.10.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy" : "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",

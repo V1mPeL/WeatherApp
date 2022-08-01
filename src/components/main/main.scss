@@ -143,7 +143,7 @@
 
 .additional__weather {
     flex: 0 1 40%;
-    height: 400px;
+    height: 200px;
     border-radius: 10px;
     background: rgba(11, 27, 74, .45);
     display: flex;
@@ -170,33 +170,13 @@
   }
 }
 
-
-.wind__compass {
-  padding: 30px 0;
-  background: #0b1b4a;
-  color: white;
+.additional__bars {
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &-wrapper {
-    margin: 0 auto;
-    height: 400px;
-    width: 400px;
-    border-radius: 10px;
-    background: rgba(10, 70, 250, 0.45);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    @media (max-width: 768px) {
-      width: 300px;
-      height: 300px;
-    }
-  }
+  flex-wrap: wrap;
+  gap: 10px;
 }
+
 
 .shell {
   width: 350px;
@@ -382,3 +362,43 @@
       }
   }
 }
+
+.additional__content__block {
+    margin: 0 auto;
+    background: #0b1b4a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(10, 70, 250, 0.45);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      width: 300px;
+      height: 300px;
+    }
+
+  }
+  .bar {
+    margin-top: 20px;
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+    background: white;
+
+    &__colored {
+      
+      height: 10px;
+      border-radius: 20px;
+      background: red;
+    }
+  }
