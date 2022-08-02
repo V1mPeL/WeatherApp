@@ -5,7 +5,6 @@ import axios from 'axios';
 import { WiHumidity } from 'react-icons/wi'
 import { BsWind } from 'react-icons/bs'
 import { useEffect, useState } from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 
 export const Main = () => {
@@ -38,8 +37,8 @@ export const Main = () => {
   };
 
   const center = {
-    lat: {latitude},
-    lng: {longitude}
+    lat: 49.5183,
+    lng: 23.1975
   };
 
   // Additional info
@@ -154,11 +153,9 @@ function arrowClass(el) {
 
 
 
-
-
   return (
     <>
-    <div className='Main'>
+      <div className='Main'>
       <div className="container">
         <div className="weather__wrapper">
 
@@ -196,7 +193,7 @@ function arrowClass(el) {
 
         </div>
       </div>
-    </div>
+      </div>
    
       <div className="additional__bars-wrapper">
         <div className="container">
@@ -281,18 +278,6 @@ function arrowClass(el) {
 
             <div className="additional__content__block">
               <h4 className="additional__info">Latitude: <span>{latitude} </span>Longitute: <span>{longitude}</span></h4>
-              <LoadScript
-                googleMapsApiKey={`${process.env.GOOGLE_MAP_API_KEY}`}
-              >
-                <GoogleMap
-                  mapContainerStyle={containerStyle}
-                  center={center}
-                  zoom={1}
-                >
-                  { /* Child components, such as markers, info windows, etc. */ }
-                  <></>
-                </GoogleMap>
-              </LoadScript>
             </div>
           </div>
         </div>
