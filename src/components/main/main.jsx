@@ -12,6 +12,7 @@ export const Main = () => {
   const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","Aug", "Sep", "Oct", "Nov", "Dec"];
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const day = new Date()
+  let fullTime = day.toLocaleString();
   let dayName = days[day.getDay()]
   let monthName = month[day.getMonth()] 
   let date = `${dayName}, ${day.getDate()} ${monthName}`
@@ -23,6 +24,7 @@ export const Main = () => {
   const [icon, setIcon] = useState("")
   const [humidity, setHumidity] = useState(null)
   const [wind, setWind] = useState(null)
+  const [gust, setGust] = useState(null)
   const [country, setCountry] = useState("")
   const [longitude, setLongitude] = useState("")
   const [latitude, setLatitude] = useState("")
@@ -31,15 +33,6 @@ export const Main = () => {
   const [switchToggled, setSwitchToggled] = useState(false)
   const [classToggled, setClassToggled] = useState(false)
   
-  const containerStyle = {
-    width: '300px',
-    height: '300px'
-  };
-
-  const center = {
-    lat: 49.5183,
-    lng: 23.1975
-  };
 
   // Additional info
   const [pressure, setPressure] = useState("")
@@ -61,6 +54,7 @@ const fetchData = async (e) => {
     setIcon(data.weather[0].icon)
     setHumidity(data.main.humidity)
     setWind(data.wind.speed)
+    setGust(data.wind.gust)
     setCountry(data.sys.country)
     setPressure(data.main.pressure)
     setPressuregr(data.main.grnd_level)
@@ -70,7 +64,6 @@ const fetchData = async (e) => {
     setLongitude(data.coord.lon)
     setLatitude(data.coord.lat)
     
-  
     setDataFetched(true)
   }catch(err){
     console.log(err)
@@ -83,13 +76,13 @@ const defaultDataFetched = async () =>{
   if(!dataFetched){
     const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Sambir&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     const data = await res.data
-  
     setDegrees(data.main.temp)
     setLocation(data.name)
     setDescription(data.weather[0].description)
     setIcon(data.weather[0].icon)
     setHumidity(data.main.humidity)
     setWind(data.wind.speed)
+    setGust(data.wind.gust)
     setCountry(data.sys.country)
     setPressure(data.main.pressure)
     setPressuregr(data.main.grnd_level)
@@ -123,7 +116,7 @@ function degToCompass(num) {
   return arr[(val % 16)];
 }
 
-var dir = 
+let dir = 
 { 
   N: "N", 
   NNE: "NNE", 
@@ -199,7 +192,7 @@ function arrowClass(el) {
         <div className="container">
           <div className="additional__bars">
             <div className="additional__content__block">
-            <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span></h4>
+            <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span> Speed: <span>{wind}</span> Gust: <span>{gust}</span></h4>
               <div className='shell'>
 
                 <div className="arrow">
@@ -278,6 +271,7 @@ function arrowClass(el) {
 
             <div className="additional__content__block">
               <h4 className="additional__info">Latitude: <span>{latitude} </span>Longitute: <span>{longitude}</span></h4>
+              <h4 className="additional__info">Full time: <span>{fullTime} </span></h4>
             </div>
           </div>
         </div>
