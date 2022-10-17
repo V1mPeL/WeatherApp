@@ -1,15 +1,20 @@
-import "./input.scss"
-import { FiSearch } from 'react-icons/fi'
+import React from 'react'
+import ComboBox from 'react-responsive-combo-box'
+import './input.scss'
 
-const Input = ({text, submit, func}) => {
-  return (
-    <form className="input" onSubmit={submit}>
-        <input type={"text"} placeholder="Please enter location" className="input_value" onChange={text}/>
-        <span className="input_icon" onClick={func}>
-            <FiSearch />
-        </span>
-    </form>
-  )
+export const Input = ({func, submit, text}) => {
+
+  const ComboBoxExample = () => {
+    const data = [
+      'America',
+      'India',
+      'Australia',
+      'Argentina',
+      'Ireland',
+      'Indonesia',
+      'Iceland',
+      'Japan'
+    ]
+    return <ComboBox options={data} enableAutocomplete onChange={text}/>
+  }
 }
-
-export default Input

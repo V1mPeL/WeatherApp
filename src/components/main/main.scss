@@ -190,179 +190,95 @@
   position: relative;
 }
 
-.arrow {
-  position: absolute;
-
-  .arrows {
-      width: 190px;
-      height: 190px;
-      display: flex;
-      justify-content: center;
-      position: relative;
-      border-radius: 50%;
-      
-
-      &:before {
-          content: '';
-          position: absolute;
-          width: 4px;
-          height: 90px;
-          background: white;
-          z-index: 11;
-          border-radius: 6px 6px 0 0;  
+@import url(https://fonts.googleapis.com/css?family=Dosis:200,400,500,600);
+.compass {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .85);
+  position: relative;
+  font-family: 'Dosis';
+  color: #555;
+  text-shadow: 1px 1px 1px white;
+  &:before {
+    font-weight: bold;
+    position: absolute;
+    text-align: center;
+    margin-top: 5px;
+    width: 100%;
+    content: "N";
+    font-size: 14px;
+    top: -2px;
+  }
+  .direction {
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: #f2f6f5;
+    background: -moz-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f2f6f5), color-stop(100%, #cbd5d6));
+    background: -webkit-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    background: -o-linear-gradient(top, #f2f6f5 0%, #cbd5d6 100%);
+    border-radius: 100%;
+    p {
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 80px;
+      display: block;
+      margin-top: -45px;
+      font-size: 40px;
+      font-weight: bold;
+      span {
+        display: block;
+        line-height: normal;
+        margin-top: -24px;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: normal;
       }
-
-      &.active {
-          color: red;
-          &:before {
-              background: red;
-          }
-      }
-
-
-      &#N {
-          transform: rotateZ(0deg);
-          &:after {
-              content: "N";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#NNE {
-          transform: rotateZ(20deg);
-          &:after {
-              content: "NNE";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-      
-      &#NE {
-          transform: rotateZ(45deg);
-          &:after {
-              content: "NE";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#ENE {
-          transform: rotateZ(70deg);
-          &:after {
-              content: "ENE";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#E {
-          transform: rotateZ(90deg);
-          &:after {
-              content: "E";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#ESE {
-          transform: rotateZ(110deg);
-          &:after {
-              content: "ESE";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#SE {
-          transform: rotateZ(135deg);
-          &:after {
-              content: "SE";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#SSE {
-          transform: rotateZ(160deg);
-          &:after {
-              content: "SSE";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#S {
-          transform: rotateZ(180deg);
-          &:after {
-              content: "S";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#SSW {
-          transform: rotateZ(200deg);
-          &:after {
-              content: "SSW";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#SW {
-          transform: rotateZ(225deg);
-          &:after {
-              content: "SW";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#WSW {
-          transform: rotateZ(250deg);
-          &:after {
-              content: "WSW";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#W {
-          transform: rotateZ(270deg);
-          &:after {
-              content: "W";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#WNW {
-          transform: rotateZ(290deg);
-          &:after {
-              content: "WNW";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#NW {
-          transform: rotateZ(315deg);
-          &:after {
-              content: "NW";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
-
-      &#NNW {
-          transform: rotateZ(340deg);
-          &:after {
-              content: "NNW";
-              font-size: 10px;
-              margin-top: -15px;
-          }
-      }
+    }
+  }
+  .arrow {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    &:after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid red;
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      margin-left: -5px;
+      z-index: 99;
+    }
+    &.NNE { transform: rotate(22.5deg); }
+    &.NE { transform: rotate(45deg); }
+    &.ENE { transform: rotate(67.5deg); }
+    &.E { transform: rotate(90deg); }
+    &.ESE { transform: rotate(112.5deg); }
+    &.SE { transform: rotate(135deg); }
+    &.SSE { transform: rotate(157.5deg); }
+    &.S { transform: rotate(180deg); }
+    &.SSW { transform: rotate(202.5deg); }
+    &.SW { transform: rotate(-135deg); }
+    &.WSW { transform: rotate(-114.5deg); }
+    &.W { transform: rotate(-90deg); }
+    &.WNW { transform: rotate(-69.5deg); }
+    &.NW { transform: rotate(-45deg); }
+    &.NNW { transform: rotate(-24.5deg);}
   }
 }
 

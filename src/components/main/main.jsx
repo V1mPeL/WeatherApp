@@ -1,6 +1,6 @@
 import React from 'react'
 import './main.scss'
-import Input from '../input/input';
+import { Input } from '../input/input';
 import axios from 'axios';
 import { WiHumidity } from 'react-icons/wi'
 import { BsWind } from 'react-icons/bs'
@@ -153,11 +153,13 @@ function arrowClass(el) {
         <div className="weather__wrapper">
 
           <div className="main__weather">
-            <Input
+             <Input
               text={(e) => setuserLocation(e.target.value)}
               submit={fetchData}
               func={fetchData}
-            />
+            /> 
+            
+
 
               <h3 className="main__weather-location">Current weather in {location}, {country}</h3>
               <h3 className="main__weather-temperature">{Math.round(degrees)}°{switchToggled ? 'F' : 'C'}</h3> 
@@ -192,73 +194,15 @@ function arrowClass(el) {
         <div className="container">
           <div className="additional__bars">
             <div className="additional__content__block">
-            <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span> Speed: <span>{wind}</span> Gust: <span>{gust}</span></h4>
-              <div className='shell'>
-
-                <div className="arrow">
-                    <div className={arrowClass(dir.N)} id={dir.N}></div>
+              <h4 className="additional__info">Wind direction: <span>{degToCompass(winddeg)}</span> Speed: <span>{wind}</span> Gust: <span>{gust}</span></h4>
+              
+              <div class="compass">
+                <div class="direction">
+                  <p>{degToCompass(winddeg)}<span>{wind}KMH</span></p>
                 </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.NNE)} id={dir.NNE}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.NE)}  id={dir.NE}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.ENE)}  id={dir.ENE}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.E)} id={dir.E}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.ESE)} id={dir.ESE}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.SE)} id={dir.SE}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.SSE)} id={dir.SSE}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.S)} id={dir.S}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.SSW)} id={dir.SSW}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.SW)} id={dir.SW}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.WSW)} id={dir.WSW}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.W)} id={dir.W}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.WNW)} id={dir.WNW}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.NW)} id={dir.NW}></div>
-                </div>
-
-                <div className="arrow">
-                  <div className={arrowClass(dir.NNW)} id={dir.NNW}></div>
-                </div>
+                <div class={switchToggled ? 'arrow' : `arrow ${degToCompass(winddeg)}`}></div>
               </div>
+
             </div>
 
             <div className="additional__content__block">
