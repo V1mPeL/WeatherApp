@@ -1,0 +1,114 @@
+@use 'sass:math';
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint480: 479.98 + px;
+
+.Main {
+  width: 550px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  @media (max-width: $breakpoint768){
+    width: 450px;
+  }
+  @media (max-width: $breakpoint480){
+    width: 250px;
+  }
+}
+
+.current__weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @media (max-width: $breakpoint768){
+    align-items: center;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.weather__temperature {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 90px;
+  line-height: 120%;
+  /* or 197px */
+  margin-bottom: -15px;
+  letter-spacing: 0.025em;
+
+  color: #FFFFFF;
+}
+
+.weather__temperature span {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.weather__date {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 30px;
+  margin-bottom: 5px;
+  color: #FFFFFF;
+}
+
+.weather__date span {
+  font-size: 40px;
+}
+
+.weather__addons {
+  display: flex;
+  gap: 40px;
+  color: #FFFFFF;
+  margin-top: 20px;
+  align-items: center;
+  @media (max-width: $breakpoint768){
+    gap: 20px;
+  }
+}
+
+.weather__addons-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  @media (max-width: $breakpoint768){
+    font-size: 16px;
+  }
+  @media (max-width: $breakpoint480){
+    line-height: 18px;
+  }
+}
+
+
+.forecast {
+  margin-top: 50px;
+
+}
+
+.weather__icon {
+  height: 120px;
+  width: 120px;
+  margin: 0;
+}
+
+.addon__icon {
+  font-size: 30px;
+  @media (max-width: $breakpoint768){
+    font-size: 30px;
+  }
+  @media (max-width: $breakpoint480){
+    display: none;
+  }
+}

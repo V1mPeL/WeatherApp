@@ -1,0 +1,67 @@
+@use 'sass:math';
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint480: 479.98 + px;
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh; 
+  padding: 20px;
+  /* overflow: hidden; */
+  @media (max-width: $breakpoint992){
+    height: 100%;
+  }
+}
+
+.info__wrapper {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: $breakpoint992){
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.weather__wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 50px;
+
+  @media (max-width: $breakpoint992){
+    padding: 25px 30px;
+  }
+}
+
+
+.BlueGradient {
+  background: #0c05e7;
+  background: linear-gradient(235deg, #0c05e7 0%, #661fd7 53%, #9b2fcd 100%);
+}
+.MediumSeaGreenGradient {
+  background: rgb(92,235,209);
+  background: linear-gradient(235deg, rgba(92,235,209,1) 0%, rgba(60,142,129,1) 53%, rgba(26,43,44,1) 100%); 
+}
+.DarkTurquoiseGradient {
+  background: rgb(28,86,94);
+  background: linear-gradient(235deg, rgba(28,86,94,1) 0%, rgba(44,140,153,1) 53%, rgba(61,199,218,1) 100%); 
+}
+.MediumOrchidGradient {
+  background: rgb(144,101,188);
+background: linear-gradient(235deg, rgba(144,101,188,1) 0%, rgba(198,52,149,0.9640990185136554) 53%, rgba(255,0,108,0.7372082622111344) 100%); 
+}
+

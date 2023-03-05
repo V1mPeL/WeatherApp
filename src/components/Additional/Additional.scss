@@ -1,0 +1,127 @@
+@use 'sass:math';
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint480: 479.98 + px;
+
+.Additional {
+  width: 680px;
+  height: 650px;
+  background: rgba(214, 214, 214, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-radius: 20px;
+  @media (max-width: $breakpoint768){
+    width: 450px;
+  }
+  @media (max-width: $breakpoint480){
+    width: 300px;
+  }
+}
+
+.additional__location {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 120%;
+  /* or 38px */
+
+  letter-spacing: 0.012em;
+
+  color: #ffffff;
+}
+
+.text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  /* identical to box height */
+
+  text-align: center;
+  margin: 0;
+  color: #ffffff;
+}
+.bold {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.additional__sun {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  @media (max-width: $breakpoint480){
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+.additional__sun__item {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.additional__sun__item-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+.additional__sun__item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 120px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+}
+
+.additional__info {
+  display: grid;
+  column-gap: 60px;
+  row-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: $breakpoint480){
+    grid-template-columns: 1fr;
+    column-gap: 100px;
+  }
+}
+
+.additional__info__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+p.line::after {
+  content: "___________________________________";
+  font-size: 20px;
+  /* identical to box height */
+
+  text-align: center;
+  margin: 0;
+  color: #ffffff;
+  @media (max-width: $breakpoint480){
+    content: "_________________";
+  }
+}

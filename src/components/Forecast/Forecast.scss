@@ -1,0 +1,52 @@
+@use 'sass:math';
+$breakpoint992: 991.98 + px;
+$breakpoint768: 767.98 + px;
+$breakpoint480: 479.98 + px;
+
+
+.forecast__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 550px;
+    @media (max-width: $breakpoint768){
+        width: 450px;
+      }
+      @media (max-width: $breakpoint480){
+        width: 250px;
+      }
+}
+
+.forecast__item {
+    height: 210px;
+    width: 130px;
+    background: rgba(214, 214, 214, 0.4);
+    box-shadow: 3px -2px 14px -1px rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.forecast__text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    text-shadow: -1.13852px 1.70778px 0.569258px rgba(0, 0, 0, 0.1);
+}
+
+.forecast__icon {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+}
